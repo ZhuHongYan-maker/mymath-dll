@@ -1,11 +1,7 @@
-# mymath.dll 动态链接库实验（学号 20262814）
+# mymath.dll 动态链接库实验
 
 把 `add / sub / mul / div` 四个运算模块编译成 **mymath.dll**，再由 `main.c` 通过导入库
 `mymath.lib` 调用，验证动态链接库的「生成」与「使用」。
-
-- 学号：**20262814**（已写进每个源文件的注释，并作为控制台输出 `a` 的值，截图时可直接核对）
-- 环境：Visual Studio 2017，Debug | Win32（x86），C 语言
-- 交给别人使用时只需要 `mymath.dll` + `mymath.lib` + `mymath.h` 三个文件，**不需要给 .c 源码**
 
 ## 1. 运行结果
 
@@ -109,43 +105,8 @@ dumpbin /exports mymath.dll
 4. 按 **F5** 调试运行，程序会在条件成立时停在这一行（两个工程在同一解决方案，断点在 DLL 里也命中）。
 5. 打开 调试 → 窗口 → **局部变量**、**调用堆栈**，确认 `a = 20262814`、`b = 10`，
    调用堆栈是 `add ← main`（mymath.dll!add ← UseMathDll.exe!main）。
-6. 此时截图（这张就是「条件断点」那张）。
 
-## 6. 提交截图清单（全屏、含学号、至少 3 张）
-
-| 序号 | 截图内容 | 画面里要能看到 |
-| --- | --- | --- |
-| 1 | 生成 mymath.dll | 解决方案资源管理器里的 mymath 工程（add.c/sub.c/mul.c/div.c）+「输出」窗口的 `mymath.vcxproj -> ...\mymath.dll` |
-| 2 | 调用运行结果 | 控制台的 `a = 20262814` 和四行运算结果 |
-| 3 | 条件断点 | 断点条件（`a == 20262814`）、局部变量、调用堆栈 |
-| 4（可选） | 导出设置 | 项目属性里的 `MYMATH_EXPORTS`，或 `dumpbin /exports` 的结果 |
-
-注意：
-
-- **全屏截图**（不要只截一个窗口）：把 VS 最大化后截整个桌面，保证能看到 VS 标题栏和任务栏。
-- 学号出现在两处最稳妥：`main.c` 顶部的注释、控制台输出的 `a = 20262814`。
-- 三张图里都应能看出是 **mymath.dll**（不是第二周的 mymath2 静态库），否则和题目对不上。
-
-## 7. 上传到代码托管平台（Gitee / GitHub）
-
-本目录已经 `git init` 并完成首次提交（分支 `main`），仓库地址：
-
-```text
-https://github.com/ZhuHongYan-maker/mymath-dll
-```
-
-以后改完代码再提交：
-
-```bash
-git add .
-git commit -m "mymath.dll 动态链接库实验（学号 20262814）"
-git push
-```
-
-> 如果是在 U 盘 / exFAT 盘上使用 git，可能报 `detected dubious ownership`，先执行一次：
-> `git config --global --add safe.directory <本仓库的绝对路径>`
-
-## 8. 常见错误
+## 6. 常见错误
 
 | 现象 | 原因 | 解决 |
 | --- | --- | --- |
