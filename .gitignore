@@ -15,10 +15,12 @@ x64/
 *.log
 *.idb
 
-# 编译产物（保持仓库只有源码；如需提交 exe/dll 给老师，把下面几行注释掉）
+# 编译产物
+*.pch
 *.pdb
 *.ilk
 *.exp
 *.lib
 *.dll
 *.exe
+ipch/
